@@ -1,11 +1,18 @@
 from django.shortcuts import get_object_or_404, render
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
+from django.views.generic import DetailView, CreateView, UpdateView, DeleteView, ListView
+from django.core.paginator import Paginator
+from django.urls import reverse_lazy
+
 from trains.forms import TrainForm
 from trains.models import Train
-from django.views.generic import DetailView, CreateView, UpdateView, DeleteView, ListView
-from django.urls import reverse_lazy
-from django.core.paginator import Paginator
-from django.contrib import messages
-from django.contrib.messages.views import SuccessMessageMixin
+
+
+
+
+
 
  
 __all__ = (
@@ -44,7 +51,7 @@ class TrainDetailView(DetailView):
 
 
 
-class TrainCreateView(SuccessMessageMixin, CreateView):
+class TrainCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Train
     form_class = TrainForm
     template_name = 'trains/create.html'
@@ -52,7 +59,7 @@ class TrainCreateView(SuccessMessageMixin, CreateView):
     success_message = "Поезд успешно создан"
 
 
-class TrainUpdateView(SuccessMessageMixin, UpdateView):
+class TrainUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Train
     form_class = TrainForm
     template_name = 'trains/update.html'
@@ -61,7 +68,7 @@ class TrainUpdateView(SuccessMessageMixin, UpdateView):
 
 
 
-class TrainDeleteView(DeleteView):
+class TrainDeleteView(LoginRequiredMixin, DeleteView):
     model = Train
     # template_name = 'trains/delete.html'
     success_url = reverse_lazy('trains:home')

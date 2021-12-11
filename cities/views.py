@@ -1,9 +1,18 @@
+
 from django.shortcuts import get_object_or_404, render
+from django.core.paginator import Paginator
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse_lazy
+from django.views.generic import DetailView, CreateView, UpdateView, DeleteView, ListView
+
 from cities.forms import HtmlForm, CityForm
 from cities.models import City
-from django.views.generic import DetailView, CreateView, UpdateView, DeleteView, ListView
-from django.urls import reverse_lazy
-from django.core.paginator import Paginator
+
+
+
+
 
 __all__ = (
     'home', 'CityDetailView', 'CityCreateView', 'CityUpdateView', 'CityDeleteView', 'CityListView',
@@ -39,27 +48,30 @@ class CityDetailView(DetailView):
 
 
 
-class CityCreateView(CreateView):
+class CityCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = City
     form_class = CityForm
     template_name = 'cities/create.html'
     success_url = reverse_lazy('cities:home')
+    success_message = 'Город успешно создан'
 
 
-class CityUpdateView(UpdateView):
+class CityUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = City
     form_class = CityForm
     template_name = 'cities/update.html'
     success_url = reverse_lazy('cities:home')
+    success_message = 'Город успешно отредактирован'
 
 
 
-class CityDeleteView(DeleteView):
+class CityDeleteView(LoginRequiredMixin, DeleteView):
     model = City
     # template_name = 'cities/delete.html'
     success_url = reverse_lazy('cities:home')
 
     def get(self, request, *args, **kwargs):
+        messages.success(request, 'Город успешно удален')
         return self.post(request, *args, **kwargs)
 
 
