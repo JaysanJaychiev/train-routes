@@ -33,14 +33,12 @@
               <a class="nav-link" href="{% url 'trains:home' %}">Поезда</a>
             </li>
             <li class="nav-item 
-            {% if request.path == cities_create_url or request.path == trains_create_url %} 
-              active 
-            {% endif %}">
+            {% if request.path == route_list %} active {% endif %}">
               <a class="nav-link" href="{% url 'list' %}">Маршруты</a>
             </li>
             
             <li class="nav-item dropdown 
-            {% if request.path == route_list or request.path == route_detail %}
+            {% if request.path == cities_create_url or request.path == trains_craete_url %}
               active 
             {% endif %}">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -51,6 +49,15 @@
                 <a class="dropdown-item" href="{% url 'trains:create' %}">Новый поезд</a>
               </div>
             </li>
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:logout' %}">Выйти</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:login' %}">Войти</a>
+              </li>
+            {% endif %}
           </ul>
         </div>
     </nav>
