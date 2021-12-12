@@ -1,0 +1,263 @@
+[
+{
+  "model": "cities.city",
+  "pk": 2,
+  "fields": {
+    "name": "Madrits"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 3,
+  "fields": {
+    "name": "Varshava"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 4,
+  "fields": {
+    "name": "Лондон"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 5,
+  "fields": {
+    "name": "Osh"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 7,
+  "fields": {
+    "name": "Бишкек"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 9,
+  "fields": {
+    "name": "Jalivood"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 10,
+  "fields": {
+    "name": "Berlin"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 11,
+  "fields": {
+    "name": "Гамбург"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 12,
+  "fields": {
+    "name": "Ысык-Куль"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 13,
+  "fields": {
+    "name": "Стамбул"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 14,
+  "fields": {
+    "name": "Анкара"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 15,
+  "fields": {
+    "name": "Москва"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 16,
+  "fields": {
+    "name": "Испания"
+  }
+},
+{
+  "model": "cities.city",
+  "pk": 17,
+  "fields": {
+    "name": "Барселона"
+  }
+},
+{
+  "model": "routes.route",
+  "pk": 1,
+  "fields": {
+    "name": "number1",
+    "travel_times": 16,
+    "from_city": 2,
+    "to_city": 3,
+    "trains": [
+      4,
+      6
+    ]
+  }
+},
+{
+  "model": "routes.route",
+  "pk": 3,
+  "fields": {
+    "name": "Маршрут №3",
+    "travel_times": 22,
+    "from_city": 14,
+    "to_city": 7,
+    "trains": [
+      7
+    ]
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 2,
+  "fields": {
+    "name": "tr2",
+    "travel_time": 14,
+    "from_city": 10,
+    "to_city": 3
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 4,
+  "fields": {
+    "name": "tr1",
+    "travel_time": 4,
+    "from_city": 10,
+    "to_city": 9
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 5,
+  "fields": {
+    "name": "tr3",
+    "travel_time": 5,
+    "from_city": 5,
+    "to_city": 9
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 6,
+  "fields": {
+    "name": "tr4",
+    "travel_time": 20,
+    "from_city": 7,
+    "to_city": 5
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 7,
+  "fields": {
+    "name": "tr5",
+    "travel_time": 19,
+    "from_city": 14,
+    "to_city": 7
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 8,
+  "fields": {
+    "name": "tr6",
+    "travel_time": 15,
+    "from_city": 7,
+    "to_city": 14
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 9,
+  "fields": {
+    "name": "tr7",
+    "travel_time": 20,
+    "from_city": 5,
+    "to_city": 15
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 10,
+  "fields": {
+    "name": "tr8",
+    "travel_time": 9,
+    "from_city": 15,
+    "to_city": 12
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 11,
+  "fields": {
+    "name": "Trains-Europe",
+    "travel_time": 50,
+    "from_city": 16,
+    "to_city": 17
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 12,
+  "fields": {
+    "name": "Air-Europe",
+    "travel_time": 25,
+    "from_city": 16,
+    "to_city": 7
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 13,
+  "fields": {
+    "name": "TR-2 Asia",
+    "travel_time": 850,
+    "from_city": 16,
+    "to_city": 5
+  }
+},
+{
+  "model": "trains.train",
+  "pk": 14,
+  "fields": {
+    "name": "tr-poezd",
+    "travel_time": 25,
+    "from_city": 14,
+    "to_city": 13
+  }
+},
+{
+  "model": "trains.traintest",
+  "pk": 1,
+  "fields": {
+    "name": "tr1",
+    "from_city": 10
+  }
+},
+{
+  "model": "trains.traintest",
+  "pk": 2,
+  "fields": {
+    "name": "tr2",
+    "from_city": 10
+  }
+}
+]

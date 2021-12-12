@@ -17,7 +17,7 @@ DB_NAME = os.environ.get('DB_NAME')
 DB_PASSWORD = os.environ.get('DB_PASSWORD')
 DB_HOST = os.environ.get('DB_HOST')
 DB_USER = os.environ.get('DB_USER')
-# SEKRET_KEY = os.environ.get('SELRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 
@@ -29,12 +29,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'j*h=1_v9d1((z5)zli14ivtbvl2iq7ge9xs)d3t*3hmu0!a!xr'
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['train-routes.herokuapp.com']
 
 
 # Application definition
@@ -138,63 +138,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    # выключатели втсроенные джанго логгеры
-    'filters': {
-    # аозволяет отфильтровывать входящие запросы
-        'require_debug_true': {
-        # фиксировать логирование только когда debug=true
-            '()': 'django.utils.log.RequireDebugTrue',
-        }
-    },
-    'formatters': {
-    # отвечает за вывод сообщения 
-        'verbose': {
-            'format':
-            '{levelname} {asctime} {module} {message}',
-            # {уровень}   {время}  {модуль} {запрос для фиксации}
-            'style':
-            '{',
-        },
-    },
-    'handlers': {
-    # каким образом мы можем обрабоать полученное сообщение
-        'console': {
-        # можно выводить в консоль
-            'level': 'DEBUG',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
-        },
-        'file': {
-        # или вывод в файл
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': BASE_DIR.joinpath('log/application.log'),
-            # при указании файлом нужно указать место положение таким образом
-            'formatter': 'verbose',
-        }
-    },
-    'loggers': {
-    # что мы фактически фиксируем 
-        'django_request': {
-        # запросы из вне будем фиксировать
-            'handlers': ['file'],
-            # в файл
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-        'django.db.backends': {
-        # те запросы которые будут ийдти к БД
-            'level': 'DEBUG',
-            'handlers': ['file'],
-            # тоже фиксируются в файл
-        },
-    }
-}
 
 
 STATIC_ROOT = BASE_DIR.joinpath('staticfiles')
