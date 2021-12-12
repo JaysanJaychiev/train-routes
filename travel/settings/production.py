@@ -13,11 +13,11 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os 
 
-DB_NAME = os.venv.get('DB_NAME')
-DB_PASSWORD = os.venv.get('DB_PASSWORD')
-DB_HOST = os.venv.get('DB_HOST')
-DB_USER = os.venv.get('DB_USER')
-# SEKRET_KEY = os.venv.get('SELRET_KEY')
+DB_NAME = os.environ.get('DB_NAME')
+DB_PASSWORD = os.environ.get('DB_PASSWORD')
+DB_HOST = os.environ.get('DB_HOST')
+DB_USER = os.environ.get('DB_USER')
+# SEKRET_KEY = os.environ.get('SELRET_KEY')
 
 
 
